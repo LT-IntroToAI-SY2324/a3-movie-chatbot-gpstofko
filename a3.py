@@ -50,10 +50,13 @@ def title_by_year(matches: List[str]) -> List[str]:
     Args:
         matches - a list of 1 string, just the year. Note that this year is passed as a
             string and should be converted to an int
-
+            
     Returns:
         a list of movie titles made in the passed in year
     """
+    inp_year = matches[0]
+    inp_year = int(inp_year)
+    ret_list = []
     pass
 
 
