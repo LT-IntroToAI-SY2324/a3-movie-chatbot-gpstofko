@@ -251,10 +251,22 @@ def search_pa_list(src: List[str]) -> List[str]:
         a list of answers. Will be ["I don't understand"] if it finds no matches and
         ["No answers"] if it finds a match but no answers
     """
-    for thing in pa_list:
-        if match(thing, src) == []:
-            return
-        elif match(thing, src) == []
+    return_list = []
+    temp_list = []
+    
+    for pa in pa_list:
+        if match(pa, src) != [] and match(pa, src) != None:
+            temp_list.append(match(pa,src))
+            fun = pa[1]
+            break
+        elif match(pa, src) == []:
+            return_list.append("No answers")
+        else:
+            return_list.append("I don't understand")
+    return_list = fun(temp_list)
+    return return_list
+    
+
 
 
 
