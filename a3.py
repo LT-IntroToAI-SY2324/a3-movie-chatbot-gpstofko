@@ -251,21 +251,12 @@ def search_pa_list(src: List[str]) -> List[str]:
         a list of answers. Will be ["I don't understand"] if it finds no matches and
         ["No answers"] if it finds a match but no answers
     """
-    return_list = []
-    temp_list = []
-    
-    for pa in pa_list:
-        if match(pa, src) != [] and match(pa, src) != None:
-            temp_list.append(match(pa,src))
-            fun = pa[1]
-            break
-        elif match(pa, src) == []:
-            return_list.append("No answers")
-        else:
-            return_list.append("I don't understand")
-    return_list = fun(temp_list)
-    return return_list
-    
+    for pat, act in pa_list:
+        mat = match(pat, src)
+        if mat is not None:
+            ans = act(mat)
+            return ans if ans else ["No answers"]
+    return ["I don't understand"]
 
 
 
@@ -292,7 +283,7 @@ def query_loop() -> None:
 # uncomment the following line once you've written all of your code and are ready to try
 # it out. Before running the following line, you should make sure that your code passes
 # the existing asserts.
-# query_loop()
+query_loop()
 
 if __name__ == "__main__":
     assert isinstance(title_by_year(["1974"]), list), "title_by_year not returning a list"
