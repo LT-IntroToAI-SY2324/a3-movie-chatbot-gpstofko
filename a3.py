@@ -224,6 +224,7 @@ def bye_action(dummy: List[str]) -> None:
 # pattern and action It must be declared here, after all of the function definitions
 pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
     (str.split("what movies were made in _"), title_by_year),
+    (str.split("_ movies"), title_by_year),
     (str.split("what movies were made between _ and _"), title_by_year_range),
     (str.split("what movies were made before _"), title_before_year),
     (str.split("what movies were made after _"), title_after_year),
@@ -339,5 +340,8 @@ if __name__ == "__main__":
     assert sorted(
         search_pa_list(["what", "movies", "were", "made", "in", "2020"])
     ) == sorted(["No answers"]), "failed search_pa_list test 3"
+    assert sorted(
+        search_pa_list(["2014", ])
+    )
 
     print("All tests passed!")
