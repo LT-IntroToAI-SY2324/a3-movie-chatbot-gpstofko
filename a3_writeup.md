@@ -20,6 +20,9 @@ I would like to create a chatbot that could search a database of songs and find 
 The most difficult portion of this assignment was the search_pa_list function as my understanding of python wasn't deep enough to make the correct if statement and access different parts of tuples.
 
 6. Did you write a new assert for your pattern action?
-I did.
+I did. I wrote the assert:
+assert sorted(
+        search_pa_list(["2014", "movies"])
+    ) == sorted(["interstellar"]), "failed search_pa_list test 4"
 
 

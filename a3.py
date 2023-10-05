@@ -307,7 +307,7 @@ if __name__ == "__main__":
         ["casablanca", "citizen kane", "gone with the wind", "metropolis"]
     ), "failed title_before_year test"
     assert sorted(title_after_year(["1990"])) == sorted(
-        ["boyz n the hood", "dead again", "the crying game", "flirting", "malcolm x"]
+        ["boyz n the hood", "dead again", "the crying game", "flirting", "malcolm x", "interstellar"]
     ), "failed title_after_year test"
     assert sorted(director_by_title(["jaws"])) == sorted(
         ["steven spielberg"]
@@ -341,7 +341,7 @@ if __name__ == "__main__":
         search_pa_list(["what", "movies", "were", "made", "in", "2020"])
     ) == sorted(["No answers"]), "failed search_pa_list test 3"
     assert sorted(
-        search_pa_list(["2014", ])
-    )
+        search_pa_list(["2014", "movies"])
+    ) == sorted(["interstellar"]), "failed search_pa_list test 4"
 
     print("All tests passed!")
